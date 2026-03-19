@@ -71,7 +71,7 @@ f=false,w=window,d=document,v=d.querySelector('#vwoCode'),cK='_vwo_'+account_id+
             <button
               class="cta-primary"
               data-vwo-element="primary-cta"
-              onclick="trackConversion('primary_cta_click')"
+              onclick="handleClick1()"
             >
               Start Free Trial
             </button>
@@ -199,5 +199,15 @@ f=false,w=window,d=document,v=d.querySelector('#vwoCode'),cK='_vwo_'+account_id+
     </footer>
 
     <script src="script.js"></script>
+	<script>
+		function handleClick1() {
+  trackConversion('primary_cta_click');
+
+  const info = window.VWO.getCrossDomainInfo();
+  const url = `https://test-app-2-liard.vercel.app/?${info.q}=${info.d}`;
+
+  window.location.href = url;
+}
+	</script>
   </body>
 </html>
